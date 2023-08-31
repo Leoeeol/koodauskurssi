@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Squash</title>
+</head>
+<body>
+
+<svg width="100%" height="650" xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+    <g id="pelialue">
+        <rect id="tausta" x="20" y="20" width="300" height="210" fill="rgb(0 0 0)" />
+        <rect id="oseina" x="300" y="40" width="5" height="200" fill="rgb(255 255 255)"/>
+        <rect id="vseina" x="35" y="40" width="5" height="200" fill="rgb(255 255 255)"/>
+        <rect id="pseina" x="40" y="40" width="260" height="5" fill="rgb(255 255 255)"/>
+    </g>
+
+    <g id="pistelaskenta">
+        <text id="score" x="165" y="75" fill="rgb(255 255 255)">0</text>
+    </g>
+
+    <rect id="racket" x="20" y="200" width="20" height="5" fill="rgb(255 255 255)"/>
+    <circle id="ball" cx="5" cy="5" r="5" fill="rgb(255 255 255)"/>
+
+    <text id="gameover" x="120" y="100" fill="rgb(255 0 0)"></text>
+
+    <g id="debug">
+        <text id="debuginfo" x="350" y="100"></text>
+    </g>
+....piirra pistelaskenta....pistemaara alussa on 0....anna nimeksi "score"
+....piirra maila....anna sille nimeksi "racket"
+....piirra pallo....anna sille nimeksi "ball"
+
+
+<script type="text/javascript">
+
+
+  // Alusta muuttuja racketX, jossa on mailan sijainti pelin alkaessa
+  // Alusta muuttujat ballX ja ballY, joissa on pallon sijainti pelin alkaessa
+  // Alusta muuttuja dir, jossa on pallon suunta pelin alkaessa; nimea kaikki suunnat
+  // Alusta muuttuja score, jossa on alussa pistemaara 0
+  // Alusta muuttuja gameOver, jossa on totuusarvo false pelin alkaessa
+    var racketX = 100;
+    var racketW = 50;
+    var racketX2 = racketX + racketW;
+    var ballX = 120;
+    var ballY = 100;
+    var ballS = 2;
+    var dir = 0;
+    var score = 0;
+    var oldScore = 0;
+    var gameOver = false; 
+    var keyLeft = false;
+    var keyRight = false;
+
+
+    function debug() {
+        document.getElementById("debuginfo").textContent = racketX + ", " + racketX2 + ", " + ballX + ", " + ballY + ", " + dir;
+    }
+
+
+  function keyDownHandler(event) {
+
+    event.preventDefault();
+
+    // keyCodes: 37 left arrow, 39 right arrow
+
+    // Kun painetaan vasenta nuolinappainta, muuttuja keyLeft saa arvon true
+    // Kun painetaan oikeaa nuolinappainta, muuttuja keyRight saa arvon true
+
+      if (event.keyCode == 37) { keyLeft = true };
+      if (event.keyCode == 39) { keyRight = true };
+
+  }
+
+  function keyUpHandler(event) {
+
+    event.preventDefault();
+
+    // keyCodes: 37 left arrow, 39 right arrow
+
+    // Kun vasen nuolinappain paastetaan ylos, muuttuja keyLeft saa arvon false
+    // Kun oikea nuolinappain paastetaan ylos, muuttuja keyRight saa arvon false
+
+      if (event.keyCode == 37) { keyLeft = false };
+      if (event.keyCode == 39) { keyRight = false };
+  }
+
+  function moveRacket() {
+
+    // Jos on painettu nuolinappainta ja voidaan liikkua kyseiseen
+    // suuntaan eli ei olla valmiiksi ihan reunassa, siirra mailaa
+      // muuttamalla muuttujan racketX arvoa
+      if (keyRight && racketX2 < 300) {
+          racketX = racketX + 5 + ballS;
+      }
+      if (keyLeft && racketX > 40) {
+          racketX = racketX - 5 - ballS;
+      }
+
+    document.getElementById("racket").setAttribute("width", racketW);
+    document.getElementById("racket").setAttribute("x", racketX);
+  }
+
+  function moveBall() {
+
+    // Liikuta palloa suunnan mukaisesti
+      // Muuta muuttujien ballX ja ballY arvoja
+      switch (dir) {
+          case 0:
+              ballX = ballX - ballS;
+              ballY = ballY - ballS;
+              break;
+          case 1:
+              ballX = ballX + ballS;
+              ballY = ballY - ballS;
+              break;
+          case 2:
+              ballX = ballX + ballS;
+              ballY = ballY + ballS;
+              break;
+          case 3:
+              ballX = ballX - ballS;
+              ballY = ballY + ballS;
+              break;
+      }
+
+    document.getElementById("ball").setAttribute("cx", ballX);
+    document.getElementById("ball").setAttribute("cy", ballY);
+  }
+
+  function checkHits() {
+
+    // Tarkastele ollaanko lyoty ohi eli onko pallo paassyt alemmas kuin maila
+      // Mikali nain on, paata peli asettamalla muuttujan gameOver arvoksi true
+      if (ballY > 250) {
+          gameOver = true;
+      }
+     
+    // Tarkista tormaykset sivu- ja ylaseiniin ja muuta tarvittaessa pallon
+      // suuntaa eli muuttujan dir arvoa
+      if (ballX < 45) {
+          if (dir == 0) { dir = dir + 1; }
+          else { dir = dir - 1;}
+      }
+      if (ballX > 295) {
+          if (dir == 2) { dir = dir + 1; }
+          else { dir = dir - 1;}
+      }
+      if (ballY < 50) {
+          if (dir == 1) { dir = dir + 1; }
+          else { dir = dir - 1; }
+      }
+      
+      // Tarkista osuuko pallo mailaan
+      if (ballY > 195 && ballY < 205 && ballX > racketX && ballX < racketX2 && dir == 2) {
+          dir = dir - 1;
+          score++;
+          //ballS++;
+          racketW--;
+      }
+      if (ballY > 195 && ballY < 205 && ballX > racketX && ballX < racketX2 && dir == 3) {
+          dir = dir + 1;
+          score++;
+          racketW--;
+      }
+      if (score == oldScore + 5) {
+          oldScore = score;
+          ballS++;
+      }
+    // Jos osuu, muuta pallon suuntaa ja lisaa pistemaaraa muuttujassa score
+      if (dir == 4) { dir = 0; }
+      if (dir == -1) { dir = 4; }
+
+      
+
+    document.getElementById("score").textContent = score;
+  }
+
+  function main() {
+
+    document.documentElement.addEventListener("keydown", keyDownHandler, false);
+    document.documentElement.addEventListener("keyup", keyUpHandler, false);
+
+      if (!gameOver) {
+          racketX2 = racketX + racketW;
+         // debug();
+          moveBall();
+          moveRacket();
+          checkHits();
+          setTimeout(main, 50);
+      }
+      if (gameOver) {
+          setTimeout(main, 100);
+          document.getElementById("gameover").textContent = "GAME OVER";
+      }
+      
+    // Lisatehtava: tee GAME OVER -teksti, joka ilmestyy pelin loppuessa
+    // Vihje: display-attribuutilla saa kuvaelementin nakyviin tai nakymattomaksi
+    // Piilotus: display="none", nakyviin: display="inline"
+  }
+
+
+</script>
+</svg>
+</body>
+</html>

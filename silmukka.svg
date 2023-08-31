@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+
+
+<rect id="laatikko" x="100" y="100" width="70" height="70" fill="darkgreen" />
+
+
+
+<script type="text/javascript">
+<![CDATA[
+
+  var x = 100;
+
+  function main() {
+	
+    //en saanut toimimaan uusiX muuttujalla
+	while (x < 600) {
+	
+      var uusiX = x + 100;
+	  x = uusiX;
+      document.getElementById("laatikko").setAttribute("x", uusiX);
+      alert("Laatikko on nyt sivusuunnassa kohdassa " + uusiX);
+    }
+  }
+
+]]>
+</script>
+</svg>

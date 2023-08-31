@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Snowball Harjoitus</title>
+
+    </head>
+    
+    <body>
+        
+        <svg width="100%" height="550" xmlns="http://www.w3.org/2000/svg" onload="main();">
+            <g>
+                <rect id="ground" x="20" y="20" width="250" height="220" style="fill:rgb(255 200 200);" stroke-width="0" stroke="rgb(255 0 0)" />
+            </g>
+
+            <g>
+                <circle id="ball" r="20" cx="20" cy="20" style="fill:rgb(255 0 0)" />
+            </g>
+
+            <g>
+                <text id="scoretitle" x="300" y="120">SCORE:</text>
+                <text id="score" x="300" y="140"></text>
+            </g>
+            <g>
+                <text id="debugtitle" x="300" y="20">DEBUG:</text>
+                <text id="debug" x="300" y="40"></text>
+                <text id="debugX" x="300" y="60"></text>
+                <text id="debugY" x="300" y="80"></text>
+            </g>
+
+            <script type="text/javascript">
+
+                var ballX = 100;
+                var ballY = 100;
+                var score = 0;
+                var time = 30;
+                var i = 0;
+                var newi;
+
+                var keyLeft = false;
+                var keyUp = false;
+                var keyRight = false;
+                var keyDown = false;
+
+
+                function keyDownHandler(event) {
+
+                    event.preventDefault();
+
+                    if (event.keyCode == 37) { keyLeft = true; }
+                    if (event.keyCode == 38) { keyUp = true; }
+                    if (event.keyCode == 39) { keyRight = true; }
+                    if (event.keyCode == 40) { keyDown = true; }
+
+                }
+
+                function keyUpHandler(event) {
+
+                    event.preventDefault();
+
+                    if (event.keyCode == 37) { keyLeft = false; }
+                    if (event.keyCode == 38) { keyUp = false; }
+                    if (event.keyCode == 39) { keyRight = false; }
+                    if (event.keyCode == 40) { keyDown = false; }
+
+
+                }
+
+                function debug() {
+
+                    var ballXDebug = ballX.toString();
+                    var ballYDebug = ballY.toString();
+
+                    if (keyRight && ballX < 300) {
+                        document.getElementById("debug").textContent = "Right, ";
+                    }
+                    if (keyLeft && ballX > 40) {
+                        document.getElementById("debug").textContent = "Left, ";
+                    }
+                    if (keyUp && ballY > 0) {
+                        document.getElementById("debug").textContent = "Up, ";
+                    }
+                    if (keyDown && ballY < 200) {
+                        document.getElementById("debug").textContent = "Down, ";
+                    }
+                    document.getElementById("debugX").textContent = "X: " + ballXDebug;
+                    document.getElementById("debugY").textContent = "Y: " + ballYDebug;
+
+                }
+
+
+
+                function moveBall() {
+
+                    if (keyRight && ballX < 250) {
+                        ballX = ballX + 10;
+                    }
+                    if (keyLeft && ballX > 40) {
+                        ballX = ballX - 10;
+                    }
+                    if (keyUp && ballY > 40) {
+                        ballY = ballY - 10;
+                    }
+                    if (keyDown && ballY < 220) {
+                        ballY = ballY + 10;
+                    }
+
+                    document.getElementById('ball').setAttribute("cx", ballX);
+                    document.getElementById('ball').setAttribute("cy", ballY);
+
+                }
+
+                function checkHit() {
+
+                    
+
+                    if (ballX > 239 || ballX < 41 || ballY > 219 || ballY < 41) {
+                        document.getElementById('ground').setAttribute("stroke-width", 10);
+                        score = score + 1;
+                        ballX = 80 + Math.floor(Math.random() * 100);
+                        ballY = 80 + Math.floor(Math.random() * 100);
+                    }
+                    document.getElementById("score").textContent = score;
+
+
+                }
+
+
+
+                function main() {
+                 
+                        document.documentElement.addEventListener("keydown", keyDownHandler, false);
+                        document.documentElement.addEventListener("keyup", keyUpHandler, false);
+                        document.getElementById('ground').setAttribute("stroke-width", 0);
+                        debug();
+                        moveBall();
+                        checkHit();
+                        setTimeout(main, 50);
+                        
+                    
+                }
+
+
+            </script>
+
+        </svg>
+
+    </body>
+
+
+</html>

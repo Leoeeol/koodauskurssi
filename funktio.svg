@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+
+
+<circle id="pallo" cx="200" cy="300" r="40" fill="deeppink" />
+
+
+
+<script type="text/javascript">
+<![CDATA[
+
+  var x = 200;
+  // MUOKKAA: Tee uusi muuttuja r ja sijoita siihen sateen pituus
+	var r = 40;
+  // MUOKKAA: Tee uusi funktio kasvata, joka muuttaa ympyran sadetta.
+  // Ota mallia liikuta-funktiosta.
+
+	function laskeUusiSade(uusiR){
+		
+		document.getElementById("pallo").setAttribute("r", uusiR);
+	
+	}
+
+
+  function liikuta(uusiX) {
+
+    document.getElementById("pallo").setAttribute("cx", uusiX);
+  }
+
+  function main() {
+
+    x = x + 5;
+    // MUOKKAA: Lisaa tassa muuttuja r arvoa yhdella
+	r = r + 1;
+    liikuta(x);
+    // MUOKKAA: Kutsu tassa funktiota itse tekemaasi funktiota kasvata
+	laskeUusiSade(r);
+    if (x < 600) { setTimeout(main, 50); }
+  }
+
+]]>
+</script>
+</svg>

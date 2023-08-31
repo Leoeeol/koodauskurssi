@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+
+
+<!-- Piirra talle rivilla ympyra ja anna sille nimeksi "ympyra" -->
+<!-- Nimi annettiin id-tagilla: id="ympyra" -->
+
+<circle id="ympyra" cx="10" cy="10" r="5" style="fill:rgb(0,0,0);"/>
+
+
+
+
+
+<script type="text/javascript">
+<![CDATA[
+
+  // MUOKKAA: Esittele talla rivilla muuttuja, jonka nimi on x
+  var x;
+  // MUOKKAA: Esittele talla rivilla muuttuja, jonka nimi on y
+  var y;
+
+  function main() {
+
+    // MUOKKAA: Kysy x-muuttujalle arvo prompt-komennolla
+	
+	x = prompt("x-arvo");
+    
+	// MUOKKAA: Kysy y-muuttujalle arvo prompt-komennolla
+	
+	y = prompt("y-arvo");
+	
+    
+	// Seuraava komento asettaa muuttujan x arvon "ympyra"-nimisen kuvion attribuuttiin cx
+    
+	document.getElementById("ympyra").setAttribute("cx", x);
+
+    // Seuraava komento asettaa muuttujan y arvon "ympyra"-nimisen kuvion attribuuttiin cy
+    
+	document.getElementById("ympyra").setAttribute("cy", y);
+
+    // Seuraava komento ajaa funktion main uudestaan 4000 millisekunnin odotuksen jalkeen
+    
+	setTimeout(main, 4000);
+  }
+
+]]>
+</script>
+</svg>

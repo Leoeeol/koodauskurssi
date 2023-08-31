@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>random harjoitus</title>
+</head>
+<body>
+
+    <svg width="100%" height="550" xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+
+        <text id="tekstia" x="50" y="100" style="fill: red; font-family: Rockwell; font-weight: bold; font-size: 60px;"></text>
+        <text id="tekstib" x="50" y="200" style="fill: dodgerblue; font-family: Rockwell; font-weight: bold; font-size: 60px;"></text>
+        <text id="tekstic" x="50" y="300" style="fill: darkorange; font-family: Rockwell; font-weight: bold; font-size: 60px;"></text>
+        <text id="tekstid" x="50" y="400" style="fill: green; font-family: Rockwell; font-weight: bold; font-size: 60px;"></text>
+
+
+        <script type="text/javascript">
+
+            var a;
+            var b;
+            var c;
+            var d;
+
+          function main() {
+
+    // Sijoita muuttujaan a satunnainen desimaaliluku valilta 0 - 0,9999...
+            a = Math.random();
+
+    // Sijoita muuttujaan b satunnainen desimaaliluku valilta 0 - 49,999...
+            b = Math.random() * 50;
+
+    // Sijoita muuttujaan c satunnainen kokonaisluku valilta 0 - 400
+            c = Math.floor(Math.random() * 400);
+
+    // Sijoita muuttujaan d satunnainen kokonaisluku valilta 50 - 80
+    // ...eli 50 + satunnaisluku valilta 0-30
+            d = 50 + Math.floor(Math.random() * 30);
+
+            document.getElementById("tekstia").textContent = "a = " + a + " (0-0.999...)";
+            document.getElementById("tekstib").textContent = "b = " + b + " (0-49.999...)";
+            document.getElementById("tekstic").textContent = "c = " + c + " (0-400)";
+            document.getElementById("tekstid").textContent = "d = " + d + " (50-80)";
+          }
+        </script>
+    </svg>
+</body>
+</html>

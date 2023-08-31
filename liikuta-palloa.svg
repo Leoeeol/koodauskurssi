@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+
+
+<!-- Aloita piirtamalla ympyra kohtaan (200,300). Anna sen nimeksi "pallo" -->
+<circle cx="200" cy="300" r="5" id="pallo" style="fill:rgb(0,0,0);" />
+
+
+
+<script type="text/javascript">
+<![CDATA[
+
+  // MUOKKAA: Tee muuttuja x ja sijoita sen arvoksi ympyran sijainnin cx-arvo (eli 200)
+	
+	var x = 200;
+	var siirto = 5;
+
+  function main() {
+
+    // MUOKKAA: Tee koodi, joka kasvattaa muuttujan x arvoa viidella
+	x = x + siirto;
+	
+	if(x = 600){
+			siirto = -5;
+	}
+	else if(x = 200){
+			siirto = 5;	
+	}
+	else{
+			siirto = 0;
+	}
+
+	
+
+	document.getElementById("pallo").setAttribute("cx", x);
+
+	setTimeout(main, 50);
+
+
+    // MUOKKAA koodia siten, etta edellinen setTimeout-komento suoritetaan vain,
+    // jos muuttujan x arvo on pienempi kuin 600. Ohjelma siis pysahtyy, kun
+    // pallo on siirtynyt kohdan 600 yli.
+  }
+
+]]>
+</script>
+</svg>

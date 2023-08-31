@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" onload="main();">
+
+
+<!-- Tassa tiedostossa ei piirreta mitaan -->
+
+
+<script type="text/javascript">
+<![CDATA[
+
+  var a = 2;
+  var b = 5;
+  var c;
+  var d;
+  // MUOKKAA: Esittele talla rivilla uusi muuttuja, valitse sille joku nimi
+  var lempiKukka;
+
+  function main() {
+
+    c = a + b;
+    alert("Muuttujalla c on arvo " + c);  // Tulostetaan muuttujan arvo
+
+    d = prompt("Kirjoita nimesi");        // Kysytaan muuttujalle arvo
+    alert("Hei " + d +"!");
+
+    // MUOKKAA: Kirjoita tahan koodi, koka kysyy arvon omalle muuttujallesi
+	lempiKukka = prompt("Mikä on lempikukkasi?");
+    // MUOKKAA: Kirjoita tahan koodi, joka nayttaa oman muuttujasi arvon ruudulla
+	alert("lempikukkasi on " + lempiKukka);
+  }
+
+]]>
+</script>
+</svg>

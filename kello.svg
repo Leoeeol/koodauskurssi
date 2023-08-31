@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg">
+
+<g id="kello">
+
+<!-- tausta -->
+<rect x="0" y="0" width="265" height="130" style="fill:rgb(0,0,0);" />
+<!-- harmaa 8 n.1 -->
+<rect x="25" y="20" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="25" y="60" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="25" y="100" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="20" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="55" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="20" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="55" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<!-- harmaa 8 n.2 -->
+<rect x="75" y="20" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="75" y="60" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="75" y="100" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="70" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="105" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="70" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="105" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<!-- harmaa 8 n.3 -->
+<rect x="150" y="20" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="150" y="60" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="150" y="100" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="145" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="180" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="145" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="180" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<!-- harmaa 8 n.4 -->
+<rect x="205" y="20" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="205" y="60" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="205" y="100" width="30" height="5" style="fill:rgb(60,60,60);" />
+<rect x="200" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="235" y="25" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="200" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<rect x="235" y="65" width="5" height="35" style="fill:rgb(60,60,60);" />
+<!-- pisteet punaiset -->
+<circle cx="127.5" cy="45" r="7.5" style="fill:rgb(255,25,25)" />
+<circle cx="127.5" cy="80" r="7.5" style="fill:rgb(255,25,25)" />
+<!-- numerot punaiset -->
+<!-- UNO -->
+<rect x="55" y="25" width="5" height="35" style="fill:rgb(255,25,25);" />
+<rect x="55" y="65" width="5" height="35" style="fill:rgb(255,25,25);" />
+<!-- DOS -->
+<rect x="75" y="20" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="75" y="60" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="75" y="100" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="105" y="25" width="5" height="35" style="fill:rgb(255,25,25);" />
+<rect x="70" y="65" width="5" height="35" style="fill:rgb(255,25,25);" />
+<!-- TRE -->
+<rect x="150" y="20" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="150" y="60" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="150" y="100" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="180" y="25" width="5" height="35" style="fill:rgb(255,25,25);" />
+<rect x="180" y="65" width="5" height="35" style="fill:rgb(255,25,25);" />
+<!-- SJU -->
+<rect x="205" y="20" width="30" height="5" style="fill:rgb(255,25,25);" />
+<rect x="235" y="25" width="5" height="35" style="fill:rgb(255,25,25);" />
+<rect x="235" y="65" width="5" height="35" style="fill:rgb(255,25,25);" />
+<!-- digital watch -->
+<text x="70" y="125" style="font-size:15px; fill:rgb(255,25,25); font-weight:bold; font-family: arial;">DIGITAL WATCH</text>
+</g>
+
+</svg>
